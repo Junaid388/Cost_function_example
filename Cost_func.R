@@ -65,3 +65,10 @@ p2 <- model_i[1:30,] %>%
        y = "Sum of Sqaured errors") + 
   scale_color_continuous(low = "red", high = "dodger blue") +
   guides(colour = FALSE)
+
+predict_from_theta <- function(x) {
+  
+  x <- cbind(x, rep(1, length(x)))
+  dot(x, theta)
+  
+}
