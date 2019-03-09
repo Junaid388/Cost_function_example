@@ -43,7 +43,7 @@ p1 <- df %>%
   ) +
   geom_point(alpha = 0.4) + 
   geom_abline(aes(intercept = b0, 
-                  slope = b1), 
+                  slope = b1),
               data = model_i[100, ], 
               alpha = 0.5, 
               size = 2, 
@@ -57,3 +57,11 @@ p1 <- df %>%
   scale_color_continuous(low = "red", high = "grey") +
   guides(colour = FALSE) +
   theme_minimal()
+p2 <- model_i[1:30,] %>%
+  ggplot(aes(model_iter, sse, colour = -sse)) + 
+  geom_point(alpha = 0.4) +
+  theme_minimal() +
+  labs(x = "Model iteration", 
+       y = "Sum of Sqaured errors") + 
+  scale_color_continuous(low = "red", high = "dodger blue") +
+  guides(colour = FALSE)
